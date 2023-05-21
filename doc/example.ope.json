@@ -1,0 +1,25 @@
+{
+  "id": "nginx",
+  "desc": "Nginx reverse proxy",
+  "cmd": {
+    "install": [
+      { "desc": "Execute locally a script"       , "xtag": "", "type": "local_exec"     , "bash": "ls -lah" },
+      { "desc": "Execute locally a file"         , "xtag": "", "type": "local_exec"     , "local": "hello.sh" },
+
+      { "desc": "PUT a file on remote"           , "xtag": "", "type": "put"            , "local": "hello.sh", "remote": "/tmp/" },
+      { "desc": "GET a file from remote"         , "xtag": "", "type": "get"            , "local": "/tmp/"   , "remote": "/tmp/hello.sh" },
+
+      { "desc": "Execute remotely a script"      , "xtag": "", "type": "remote_exec"    , "bash": "ls -lah" },
+      { "desc": "Execute remotely a local file"  , "xtag": "", "type": "remote_exec"    , "local": "hello.sh" },
+      { "desc": "Execute remotely a remote file" , "xtag": "", "type": "remote_exec"    , "remote": "/tmp/hello.sh" },
+
+      { "desc": "Rsync from local to remote"     , "xtag": "", "type": "rsync_to_remote", "local": "/local_dir/", "remote": "/remote_dir/", "args": "-av" },
+      { "desc": "Rsync from remote to local"     , "xtag": "", "type": "rsync_to_local" , "local": "/local_dir/", "remote": "/remote_dir/", "args": "-av" }
+    ],
+    "backup": {
+      "conf": [
+        { "desc": "Backup conf etc"              , "xtag": "", "type": "rsync_to_local" , "local": "/local_conf_dir/", "remote": "/remote_conf_dir/", "args": "-av" }
+      ]
+    }
+  }
+}
