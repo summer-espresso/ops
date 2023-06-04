@@ -6,6 +6,7 @@ bool            is_cmd_all          = false;
 bool            is_dry_run_mode     = false;
 bool            is_quiet_mode       = false;
 bool            is_recursive_mode   = true;
+bool            is_reverse_mode   	= false;
 
 std::string     base_path           = ".";
 std::string     command;

@@ -14,6 +14,7 @@ extern bool is_cmd_all;
 extern bool is_dry_run_mode;
 extern bool is_quiet_mode;
 extern bool is_recursive_mode;
+extern bool is_reverse_mode;
 
 extern std::string base_path;
 extern std::string command;

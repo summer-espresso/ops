@@ -8,7 +8,7 @@
 
 void version ()
 {
-	std::cout << "0.1.0" << std::endl;
+	std::cout << "0.2.0" << std::endl;
 }
 
 void use ()
@@ -27,8 +27,9 @@ void use ()
 		"  -h Display this help.\n"
 		"  -p Port of the remote connection.\n"
 		"  -q Quiet mode.\n"
+		"  -r Reverse mode : processes files in reverse order\n"
 		"  -s Suffix of operations files. Default is '.ope.json'\n"
-		"  -u Remote user for the connection. Default is 'root'"
+		"  -u Remote user for the connection. Default is 'root'\n"
 		"  -v Display version.\n"
 		"  -w Working directory. Default is the current directory.\n"
 		"  -x [tags] Exclude tags. Do not execute operation containing this tags.\n"
@@ -72,7 +73,7 @@ int main(int argc, char **argv)
 		return EX_USAGE; // 64
 	}
 
-	char list_opt[] = "a:b:c:dhp:qs:u:vw:x:";
+	char list_opt[] = "a:b:c:dhp:qrs:u:vw:x:";
 	int opt = 0;
 	std::string log_level;
 
@@ -102,6 +103,9 @@ int main(int argc, char **argv)
 		case 'q':
 			glo::is_quiet_mode = true;
 			break;
+		case 'r':
+			glo::is_reverse_mode = true;
+			break;
 		case 's':
 			glo::suffix_str = optarg;
 			break;
@@ -110,6 +114,7 @@ int main(int argc, char **argv)
 			break;
 		case 'v':
 			version();
+			return 0;
 			break;
 		case 'w':
 			glo::working_dir = optarg;
@@ -171,6 +176,7 @@ int main(int argc, char **argv)
 	glo::is_recursive_mode = glo::arg_list.size() <= MIN_ARG_LIST;
 
 	std::cout << "recursive  : " << (glo::is_recursive_mode ? "yes" : "no") << "\n";
+	std::cout << "reverse    : " << (glo::is_reverse_mode ? "yes" : "no") << "\n";
 
 	process();
 

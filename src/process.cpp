@@ -218,7 +218,14 @@ void process ()
 		extract_file_list();
 	}
 
-	std::sort(glo::json_list.begin(), glo::json_list.end());
+	if (glo::is_reverse_mode)
+	{
+		std::sort(glo::json_list.rbegin(), glo::json_list.rend());
+	}
+	else
+	{
+		std::sort(glo::json_list.begin(), glo::json_list.end());
+	}
 
 	for (std::string & json_file : glo::json_list)
 	{
