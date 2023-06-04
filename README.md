@@ -58,8 +58,10 @@ options:
   -h Display this help.
   -p Port of the remote connection.
   -q Quiet mode.
+  -r Reverse mode : processes files in reverse order
   -s Suffix of operations files. Default is '.ope.json'
-  -u Remote user for the connection. Default is 'root'  -v Display version.
+  -u Remote user for the connection. Default is 'root'
+  -v Display version.
   -w Working directory. Default is the current directory.
   -x [tags] Exclude tags. Do not execute operation containing this tags.
 
