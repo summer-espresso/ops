@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> This repository has been moved to codeberg : https://codeberg.org/SummerEspresso/ops
+
 # ops
 Simple helper for devops scripts
 
